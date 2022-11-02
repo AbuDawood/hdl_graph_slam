@@ -1,0 +1,28 @@
+{
+    "name": "hdl_graph_slam",
+    "dockerFile": "Dockerfile",
+    "extensions": [
+        "ms-azuretools.vscode-docker",
+        "ms-python.python",
+        "ms-vscode.cpptools",
+        "twxs.cmake",
+        "ms-vscode.cmake-tools",
+        "ms-iot.vscode-ros",
+        "smilerobotics.urdf",
+        "yzhang.markdown-all-in-one"
+    ],
+    "runArgs": [
+        // This will allow you to use a ptrace-based debugger like C++, Go, and Rust.
+        "--cap-add=SYS_PTRACE",
+        "--security-opt",
+        "seccomp=unconfined",
+        // "-v",
+        // "${env:HOME}${env:USERPROFILE}/.ssh:/root/.ssh"
+    ],
+    "settings": {
+        "terminal.integrated.shell.linux": ["-l", "-i"]
+    },
+    "postCreateCommand": "bash /catkin_ws/src/hdl_graph_slam/scripts/docker-setup.sh",
+    "workspaceMount": "src=c:/Users/osama/Desktop/Docker_Experiments/remote-extension-projects/hdl_graph_slam,dst=/catkin_ws/src/hdl_graph_slam,type=bind,consistency=cached",
+    "workspaceFolder": "/catkin_ws"
+}
