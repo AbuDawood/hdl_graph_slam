@@ -22,7 +22,7 @@
     "settings": {
         "terminal.integrated.shell.linux": ["-l", "-i"]
     },
-    "postCreateCommand": "bash /catkin_ws/src/hdl_graph_slam/scripts/docker-setup.sh",
-    "workspaceMount": "src=c:/Users/osama/Desktop/Docker_Experiments/remote-extension-projects/hdl_graph_slam,dst=/catkin_ws/src/hdl_graph_slam,type=bind,consistency=cached",
+    "postCreateCommand": "bash /src/hdl_graph_slam/scripts/docker-setup.sh",
+    "workspaceMount": "src=c:/Users/osama/Desktop/Docker_Experiments/remote-extension-projects,dst=/catkin_ws/src/hdl_graph_slam,type=bind,consistency=cached",
     "workspaceFolder": "/catkin_ws"
 }

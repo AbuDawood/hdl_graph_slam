@@ -1,0 +1,44 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "catkin_make",
+            "type": "shell",
+            "command": "catkin_make",
+            "args": [
+                // "-j$(nproc)",
+                // "-DFranka_DIR:PATH=${workspaceFolder}/dependencies/libfranka/build",
+                "-DCMAKE_BUILD_TYPE=Release",
+                // "-DCMAKE_EXPORT_COMPILE_COMMANDS=1",
+                // "-DCMAKE_CXX_STANDARD=14"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "hdl_graph_slam",
+            "type": "shell",
+            "command": "roslaunch hdl_graph_slam hdl_graph_slam_kitti.launch.launch",
+            "problemMatcher": [],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "hdl_graph_slam docker",
+            "type": "shell",
+            "command": "roslaunch hdl_graph_slam hdl_graph_slam_kitti.launch  gui:=false",
+            "problemMatcher": [],
+            "group": {
+                "kind": "test",
+                "isDefault": false
+            }
+        }
+    ]
+}
