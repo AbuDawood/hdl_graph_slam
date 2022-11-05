@@ -18,6 +18,7 @@ COPY /.devcontainer /workspaces/hdl_slam_devcontainer/.devcontainer
 COPY /.vscode /workspaces/hdl_slam_devcontainer/.vscode
 COPY /.github /workspaces/hdl_slam_devcontainer/.github
 COPY /.gitignore /workspaces/hdl_slam_devcontainer/.gitignore
+COPY /.git /workspaces/hdl_slam_devcontainer/.git
 COPY /scripts /workspaces/hdl_slam_devcontainer/scripts
 
 WORKDIR /workspaces/hdl_slam_devcontainer
