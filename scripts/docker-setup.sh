@@ -1,5 +1,3 @@
-echo 'source root/catkin_ws/devel/setup.bash' >> /root/.bashrc
+#!/bin/bash
 
-source /root/catkin_ws/devel/setup.bash
-
-catkin_make -DCMAKE_BUILD_TYPE=Release
+echo 'source /opt/ros/noetic/setup.bash' >> /root/.bashrc

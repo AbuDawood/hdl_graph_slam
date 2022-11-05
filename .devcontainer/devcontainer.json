@@ -1,7 +1,10 @@
 {
     "name": "hdl_graph_slam",
+    "remoteUser": "root",
+    "context": "..",
     "dockerFile": "Dockerfile",
     "extensions": [
+        //TODO: enable after successful container dev
         "ms-azuretools.vscode-docker",
         "ms-python.python",
         "ms-vscode.cpptools",
@@ -11,18 +14,40 @@
         "smilerobotics.urdf",
         "yzhang.markdown-all-in-one"
     ],
-    "runArgs": [
-        // This will allow you to use a ptrace-based debugger like C++, Go, and Rust.
-        "--cap-add=SYS_PTRACE",
-        "--security-opt",
-        "seccomp=unconfined",
-        // "-v",
-        // "${env:HOME}${env:USERPROFILE}/.ssh:/root/.ssh"
-    ],
-    "settings": {
-        "terminal.integrated.shell.linux": ["-l", "-i"]
+    "build": {
+        "args": {
+            "WORKSPACE": "${containerWorkspaceFolder}"
+        }
     },
-    "postCreateCommand": "bash /src/hdl_graph_slam/scripts/docker-setup.sh",
-    "workspaceMount": "src=c:/Users/osama/Desktop/Docker_Experiments/remote-extension-projects,dst=/catkin_ws/src/hdl_graph_slam,type=bind,consistency=cached",
-    "workspaceFolder": "/catkin_ws"
+    "containerEnv": {
+        "DISPLAY": "${localEnv:DISPLAY}",
+        "LIBGL_ALWAYS_SOFTWARE": "1" // Needed for software rendering of opengl
+    },
+    // Set *default* container specific settings.json values on container create.
+    "settings": {
+        "terminal.integrated.profiles.linux": {
+            "bash": {
+                "path": "bash"
+            }
+        },
+        "terminal.integrated.defaultProfile.linux": "bash"
+    },
+    "runArgs": [
+        //TODO: setup the display to open using XLaunch
+        // This will allow you to use a ptrace-based debugger like C++, Go, and Rust.
+        "--network=host",
+        "--cap-add=SYS_PTRACE",
+        "--security-opt=seccomp:unconfined",
+        "--security-opt=apparmor:unconfined",
+        "--volume=/tmp/.X11-unix:/tmp/.X11-unix"
+    ],
+    // "settings": {
+    //     "terminal.integrated.shell.linux": [
+    //         "-l",
+    //         "-i"
+    //     ]
+    // },
+    "postCreateCommand": "bash ${containerWorkspaceFolder}/scripts/docker-setup.sh",
+    "workspaceMount": "src=${localWorkspaceFolder}/src/hdl_graph_slam,dst=${containerWorkspaceFolder}/src/hdl_graph_slam,type=bind,consistency=cached",
+    "workspaceFolder": "/workspaces/hdl_slam_devcontainer"
 }

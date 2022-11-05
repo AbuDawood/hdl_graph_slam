@@ -2,30 +2,27 @@ FROM ros:noetic
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
   && apt-get install -y --no-install-recommends \
-  && apt-get install -q -y \
-  openssh-client \ 
   wget nano build-essential libomp-dev clang lld git\
   ros-noetic-geodesy ros-noetic-pcl-ros ros-noetic-nmea-msgs \
   ros-noetic-rviz ros-noetic-tf-conversions ros-noetic-libg2o \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-# open ssh to use ssh based communication with github
-
-# Append a source instruction to ~/.bashrc file for catkin_make command usage in bash
-RUN echo 'source /opt/ros/noetic/setup.bash' >> /root/.bashrc
-
-RUN mkdir -p /root/catkin_ws/src
-WORKDIR /root/catkin_ws/src
+RUN mkdir -p /workspaces/hdl_slam_devcontainer/src
+WORKDIR /workspaces/hdl_slam_devcontainer/src
 RUN /bin/bash -c '. /opt/ros/noetic/setup.bash; catkin_init_workspace'
 RUN git clone https://github.com/koide3/ndt_omp.git
 RUN git clone https://github.com/SMRT-AIST/fast_gicp.git --recursive
 
-COPY . /root/catkin_ws/src/hdl_graph_slam/
+COPY /.devcontainer /workspaces/hdl_slam_devcontainer/.devcontainer
+COPY /.vscode /workspaces/hdl_slam_devcontainer/.vscode
+COPY /.github /workspaces/hdl_slam_devcontainer/.github
+COPY /.gitignore /workspaces/hdl_slam_devcontainer/.gitignore
+COPY /scripts /workspaces/hdl_slam_devcontainer/scripts
 
-WORKDIR /root/catkin_ws
+WORKDIR /workspaces/hdl_slam_devcontainer
 RUN /bin/bash -c '. /opt/ros/noetic/setup.bash; catkin_make'
-RUN sed -i "6i source \"/root/catkin_ws/devel/setup.bash\"" /ros_entrypoint.sh
+RUN sed -i "6i source \"/workspaces/hdl_slam_devcontainer/devel/setup.bash\"" /ros_entrypoint.sh
 
 WORKDIR /
 

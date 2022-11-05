@@ -2,5 +2,6 @@
     "terminal.integrated.shellArgs.linux": [
         "-l",
         "-i"
-    ]
+    ],
+    "cmake.sourceDirectory": "${workspaceFolder}/src/hdl_graph_slam"
 }
