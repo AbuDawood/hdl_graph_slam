@@ -3,5 +3,8 @@
         "-l",
         "-i"
     ],
-    "cmake.sourceDirectory": "${workspaceFolder}/src/hdl_graph_slam"
+    "cmake.sourceDirectory": "${workspaceFolder}/src/hdl_graph_slam",
+    "python.autoComplete.extraPaths": [
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ]
 }
