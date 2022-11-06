@@ -5,3 +5,4 @@ build/*
 devel/*
 src/fast_gicp/*
 src/ndt_omp/*
+src/CMakeLists.txt
