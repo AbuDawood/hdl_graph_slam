@@ -3,3 +3,5 @@ imgui.ini
 rviz/*
 build/*
 devel/*
+src/fast_gicp/*
+src/ndt_omp/*
