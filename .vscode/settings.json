@@ -6,5 +6,10 @@
     "cmake.sourceDirectory": "${workspaceFolder}/src/hdl_graph_slam",
     "python.autoComplete.extraPaths": [
         "/opt/ros/noetic/lib/python3/dist-packages"
-    ]
+    ],
+    "python.analysis.extraPaths": [
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    //https://stackoverflow.com/questions/61113260/how-can-i-disable-cmake-in-some-project-folders-of-a-vscode-workspace
+    //"cmake.configureOnOpen": false
 }

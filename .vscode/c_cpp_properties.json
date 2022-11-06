@@ -1,9 +1,19 @@
 {
+    "env": {
+        "myDefaultIncludePath": [
+            "${workspaceFolder}",
+            "${workspaceFolder}/include"
+        ],
+        "myCompilerPath": "/usr/local/bin/gcc-7"
+    },
     "configurations": [
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/**", "/opt/ros/noetic/include"
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/devel/include/**",
+                "/opt/ros/noetic/include/**",
+                "/usr/include/**"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
