@@ -48,6 +48,6 @@
     //     ]
     // },
     "postCreateCommand": "bash ${containerWorkspaceFolder}/scripts/docker-setup.sh",
-    "workspaceMount": "src=${localWorkspaceFolder}/src/hdl_graph_slam,dst=${containerWorkspaceFolder}/src/hdl_graph_slam,type=bind,consistency=cached",
+    "workspaceMount": "src=${localWorkspaceFolder},dst=${containerWorkspaceFolder},type=bind,consistency=cached",
     "workspaceFolder": "/workspaces/hdl_slam_devcontainer"
 }
