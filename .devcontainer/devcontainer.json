@@ -47,7 +47,7 @@
     //         "-i"
     //     ]
     // },
-    "postCreateCommand": "bash ${containerWorkspaceFolder}/scripts/docker-setup.sh",
+    "postCreateCommand": "bash ${containerWorkspaceFolder}/scripts/docker-setup.sh ${containerWorkspaceFolder}",
     "workspaceMount": "src=${localWorkspaceFolder},dst=${containerWorkspaceFolder},type=bind,consistency=cached",
     "workspaceFolder": "/workspaces/hdl_slam_devcontainer"
 }
