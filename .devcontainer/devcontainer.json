@@ -34,13 +34,13 @@
         "terminal.integrated.defaultProfile.linux": "bash"
     },
     "runArgs": [
-        //TODO: setup the display to open using XLaunch
         // This will allow you to use a ptrace-based debugger like C++, Go, and Rust.
         "--network=host",
         "--cap-add=SYS_PTRACE",
         "--security-opt=seccomp:unconfined",
         "--security-opt=apparmor:unconfined",
         "--volume=/tmp/.X11-unix:/tmp/.X11-unix",
+        "-v=//c/users/osama/desktop/docker_experiments/shared-resources:/${containerWorkspaceFolder}/shared-resources"
         //  "--net=host",
         // "-it -e DISPLAY=host.docker.internal:0.0"
     ],
@@ -50,6 +50,9 @@
     //         "-i"
     //     ]
     // },
+    // "mounts": [
+    //     "src=C:\\Users\\osama\\Desktop\\Docker_Experiments\\shared-resources,dst=${containerWorkspaceFolder}/shared-resources,type=bind,consistency=cached"
+    // ],
     "postCreateCommand": "bash ${containerWorkspaceFolder}/scripts/docker-setup.sh ${containerWorkspaceFolder}",
     "workspaceMount": "src=${localWorkspaceFolder},dst=${containerWorkspaceFolder},type=bind,consistency=cached",
     "workspaceFolder": "/workspaces/hdl_slam_devcontainer"
