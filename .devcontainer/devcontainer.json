@@ -12,7 +12,7 @@
         "ms-vscode.cmake-tools",
         "ms-iot.vscode-ros",
         "smilerobotics.urdf",
-        "yzhang.markdown-all-in-one"
+        "yzhang.markdown-all-in-one",
     ],
     "build": {
         "args": {
@@ -20,7 +20,8 @@
         }
     },
     "containerEnv": {
-        "DISPLAY": "${localEnv:DISPLAY}",
+        "DISPLAY": "host.docker.internal:0.0",
+        // "DISPLAY": "${localEnv:DISPLAY}",
         "LIBGL_ALWAYS_SOFTWARE": "1" // Needed for software rendering of opengl
     },
     // Set *default* container specific settings.json values on container create.
@@ -39,7 +40,9 @@
         "--cap-add=SYS_PTRACE",
         "--security-opt=seccomp:unconfined",
         "--security-opt=apparmor:unconfined",
-        "--volume=/tmp/.X11-unix:/tmp/.X11-unix"
+        "--volume=/tmp/.X11-unix:/tmp/.X11-unix",
+        //  "--net=host",
+        // "-it -e DISPLAY=host.docker.internal:0.0"
     ],
     // "settings": {
     //     "terminal.integrated.shell.linux": [
