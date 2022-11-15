@@ -8,18 +8,19 @@ apt-get update && apt-get install -y --no-install-recommends &&
     apt-get clean &&
     rm -rf /var/lib/apt/lists/*
 
-# mkdir -p /workspaces/hdl_slam_devcontainer/src
+#TODO: make them enabeled only at initial execution
+#mkdir -p /workspaces/hdl_slam_devcontainer/src
 
 cd $1/src
 
-# /bin/bash -c '. /opt/ros/noetic/setup.bash; catkin_init_workspace'
+#/bin/bash -c '. /opt/ros/noetic/setup.bash; catkin_init_workspace'
 
-git clone https://github.com/koide3/ndt_omp.git
-git clone https://github.com/SMRT-AIST/fast_gicp.git --recursive
+#git clone https://github.com/koide3/ndt_omp.git
+#git clone https://github.com/SMRT-AIST/fast_gicp.git --recursive
 
 cd $1
 
-/bin/bash -c '. /opt/ros/noetic/setup.bash; catkin_make'
+#/bin/bash -c '. /opt/ros/noetic/setup.bash; catkin_make'
 
 sed -i "6i source \"/workspaces/hdl_slam_devcontainer/devel/setup.bash\"" /ros_entrypoint.sh
 
