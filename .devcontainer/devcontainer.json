@@ -37,6 +37,7 @@
         // This will allow you to use a ptrace-based debugger like C++, Go, and Rust.
         "--network=host",
         "--cap-add=SYS_PTRACE",
+        // "--cpus=3",
         "--security-opt=seccomp:unconfined",
         "--security-opt=apparmor:unconfined",
         "--volume=/tmp/.X11-unix:/tmp/.X11-unix",

@@ -9,6 +9,7 @@
             "command": "catkin_make",
             "args": [
                 // "-j$(nproc)",
+                "-j8", // nproc does not return the wsl or docker resources config
                 // "-DFranka_DIR:PATH=${workspaceFolder}/dependencies/libfranka/build",
                 "-DCMAKE_BUILD_TYPE=Release",
                 "-DCMAKE_EXPORT_COMPILE_COMMANDS=1",

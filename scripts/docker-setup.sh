@@ -1,12 +1,12 @@
 #!/bin/bash
 
 
-apt-get update && apt-get install -y --no-install-recommends &&
-    apt-get install -y --no-install-recommends \
-        wget nano build-essential libomp-dev clang lld git ros-noetic-geodesy ros-noetic-pcl-ros ros-noetic-nmea-msgs \
-        ros-noetic-rviz ros-noetic-tf-conversions ros-noetic-libg2o &&
-    apt-get clean &&
-    rm -rf /var/lib/apt/lists/*
+# apt-get update && apt-get install -y --no-install-recommends &&
+#     apt-get install -y --no-install-recommends \
+#         wget nano build-essential libomp-dev clang lld git ros-noetic-geodesy ros-noetic-pcl-ros ros-noetic-nmea-msgs \
+#         ros-noetic-rviz ros-noetic-tf-conversions ros-noetic-libg2o &&
+#     apt-get clean &&
+#     rm -rf /var/lib/apt/lists/*
 
 #TODO: make them enabeled only at initial execution
 #mkdir -p /workspaces/hdl_slam_devcontainer/src

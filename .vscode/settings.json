@@ -10,6 +10,7 @@
     "python.analysis.extraPaths": [
         "/opt/ros/noetic/lib/python3/dist-packages"
     ],
+    "cmake.configureOnOpen": true,
     //https://stackoverflow.com/questions/61113260/how-can-i-disable-cmake-in-some-project-folders-of-a-vscode-workspace
     //"cmake.configureOnOpen": false
 }
